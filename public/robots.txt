@@ -2,4 +2,4 @@ User-agent: *
 Allow: /
 Disallow: /admin-stats-private
 
-Sitemap: https://clearcut.pro/sitemap.xml
+Sitemap: https://www.removethebackground.fun/sitemap.xml
