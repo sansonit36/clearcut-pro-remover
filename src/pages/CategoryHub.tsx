@@ -26,7 +26,7 @@ export default function CategoryHub() {
       <SEO 
         title={`${titleFormatted} | ClearCut Background Remover`}
         description={`Explore the best ${titleFormatted.toLowerCase()} to remove backgrounds from your images instantly and for free.`}
-        canonical={`https://removethebackground.fun/tools/${category}`}
+        canonical={`https://www.removethebackground.fun/tools/${category}`}
       />
       <main className="max-w-7xl mx-auto px-6 md:px-12">
         <div className="text-center space-y-6 mb-16">

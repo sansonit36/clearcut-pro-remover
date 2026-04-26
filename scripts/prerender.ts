@@ -30,15 +30,15 @@ useCases.forEach((useCase) => {
   html = html.replace(/<meta name="description" content=".*?" \/>/, `<meta name="description" content="${useCase.metaDescription || useCase.description}" />`);
   html = html.replace(/<meta property="og:title" content=".*?" \/>/, `<meta property="og:title" content="${useCase.title}" />`);
   html = html.replace(/<meta property="og:description" content=".*?" \/>/, `<meta property="og:description" content="${useCase.metaDescription || useCase.description}" />`);
-  html = html.replace(/<meta property="og:url" content=".*?" \/>/, `<meta property="og:url" content="https://removethebackground.fun/${useCase.slug}" />`);
+  html = html.replace(/<meta property="og:url" content=".*?" \/>/, `<meta property="og:url" content="https://www.removethebackground.fun/${useCase.slug}" />`);
   html = html.replace(/<meta name="twitter:title" content=".*?" \/>/, `<meta name="twitter:title" content="${useCase.title}" />`);
   html = html.replace(/<meta name="twitter:description" content=".*?" \/>/, `<meta name="twitter:description" content="${useCase.metaDescription || useCase.description}" />`);
   
   // Add canonical or noindex tags
   if (useCase.indexable) {
-    html = html.replace('</head>', `  <link rel="canonical" href="https://removethebackground.fun/${useCase.slug}" />\n</head>`);
+    html = html.replace('</head>', `  <link rel="canonical" href="https://www.removethebackground.fun/${useCase.slug}" />\n</head>`);
   } else {
-    html = html.replace('</head>', `  <meta name="robots" content="noindex" />\n  <link rel="canonical" href="https://removethebackground.fun/tool" />\n</head>`);
+    html = html.replace('</head>', `  <meta name="robots" content="noindex" />\n  <link rel="canonical" href="https://www.removethebackground.fun/tool" />\n</head>`);
   }
 
   // Build static body content
@@ -82,7 +82,7 @@ categories.forEach(category => {
   let html = template;
   html = html.replace(/<title>.*?<\/title>/, `<title>${titleFormatted} | ClearCut</title>`);
   html = html.replace(/<meta name="description" content=".*?" \/>/, `<meta name="description" content="Explore the best ${titleFormatted.toLowerCase()} to remove backgrounds from your images instantly and for free." />`);
-  html = html.replace('</head>', `  <link rel="canonical" href="https://removethebackground.fun/tools/${category}" />\n</head>`);
+  html = html.replace('</head>', `  <link rel="canonical" href="https://www.removethebackground.fun/tools/${category}" />\n</head>`);
 
   fs.writeFileSync(path.join(dir, 'index.html'), html);
   console.log(`Pre-rendered /tools/${category}`);
@@ -93,32 +93,32 @@ const indexableUseCases = useCases.filter(u => u.indexable);
 const sitemapContent = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://removethebackground.fun/</loc>
+    <loc>https://www.removethebackground.fun/</loc>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://removethebackground.fun/tool</loc>
+    <loc>https://www.removethebackground.fun/tool</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
 ${categories.filter(c => c && c !== 'general').map(c => `  <url>
-    <loc>https://removethebackground.fun/tools/${c}</loc>
+    <loc>https://www.removethebackground.fun/tools/${c}</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>`).join('\n')}
 ${indexableUseCases.map(u => `  <url>
-    <loc>https://removethebackground.fun/${u.slug}</loc>
+    <loc>https://www.removethebackground.fun/${u.slug}</loc>
     <changefreq>weekly</changefreq>
     <priority>${u.priority === 'high' ? '0.8' : '0.6'}</priority>
   </url>`).join('\n')}
   <url>
-    <loc>https://removethebackground.fun/privacy</loc>
+    <loc>https://www.removethebackground.fun/privacy</loc>
     <changefreq>monthly</changefreq>
     <priority>0.3</priority>
   </url>
   <url>
-    <loc>https://removethebackground.fun/terms</loc>
+    <loc>https://www.removethebackground.fun/terms</loc>
     <changefreq>monthly</changefreq>
     <priority>0.3</priority>
   </url>

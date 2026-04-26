@@ -134,7 +134,7 @@ export default function Tool() {
         title={useCase?.title || "HD Background Removal Tool | 100% Free & Local Processing"}
         description={useCase?.metaDescription || useCase?.description || "Drop your image and get a perfect transparent PNG in seconds. Our local edge processing ensures maximum privacy and high-res results without any cloud AI costs."}
         keywords={useCase?.primaryKeyword ? `${useCase.primaryKeyword}, ${useCase.secondaryKeywords?.join(', ')}` : "hd png maker, transparent background tool, professional image cutout, browser based background removal"}
-        canonical={useCase?.slug ? `https://removethebackground.fun/${useCase.slug}` : undefined}
+        canonical={useCase?.slug ? `https://www.removethebackground.fun/${useCase.slug}` : undefined}
         noindex={useCase ? !useCase.indexable : false}
       />
       <main className="max-w-7xl mx-auto px-6 md:px-12">

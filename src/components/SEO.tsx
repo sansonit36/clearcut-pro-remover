@@ -11,7 +11,7 @@ interface SEOProps {
 
 export default function SEO({ title, description, keywords, canonical, noindex }: SEOProps) {
   const fullTitle = `${title} | ClearCut`;
-  const siteUrl = 'https://removethebackground.fun'; // Replace with actual URL when deployed
+  const siteUrl = 'https://www.removethebackground.fun'; // Replace with actual URL when deployed
 
   return (
     <Helmet>
