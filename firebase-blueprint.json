@@ -1,0 +1,40 @@
+{
+  "entities": {
+    "Visit": {
+      "title": "Visitor Log",
+      "description": "Records every page visit for traffic analysis.",
+      "type": "object",
+      "properties": {
+        "timestamp": { "type": "string", "format": "date-time" },
+        "ip": { "type": "string" },
+        "path": { "type": "string" },
+        "userAgent": { "type": "string" },
+        "sessionId": { "type": "string" }
+      },
+      "required": ["timestamp", "ip", "path"]
+    },
+    "RemovalEvent": {
+      "title": "Removal Event",
+      "description": "Records a successful background removal.",
+      "type": "object",
+      "properties": {
+        "timestamp": { "type": "string", "format": "date-time" },
+        "ip": { "type": "string" },
+        "fileName": { "type": "string" },
+        "fileSize": { "type": "number" },
+        "duration": { "type": "number" }
+      },
+      "required": ["timestamp", "ip"]
+    }
+  },
+  "firestore": {
+    "visits": {
+      "schema": "Visit",
+      "description": "Historical log of all site visits."
+    },
+    "removals": {
+      "schema": "RemovalEvent",
+      "description": "Historical log of all background removal actions."
+    }
+  }
+}

@@ -1,0 +1,25 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Helper to check if user is the specific admin email
+    function isAdmin() {
+      return request.auth != null && request.auth.token.email == 'dogarhusnian3@gmail.com' && request.auth.token.email_verified == true;
+    }
+
+    // Public can log visits/removals, only admin can read/manage
+    match /visits/{visitId} {
+      allow create: if true; // Open for anonymous tracking
+      allow read, update, delete: if isAdmin();
+    }
+
+    match /removals/{removalId} {
+      allow create: if true; // Open for anonymous tracking
+      allow read, update, delete: if isAdmin();
+    }
+    
+    // Default deny
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}
